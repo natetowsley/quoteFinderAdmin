@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("partials/head.ejs") %>
+    <title>Update Quote</title>
+</head>
+<body>
+    <h1> Update Quote </h1>
+
+     <form action="/updateQuote" method="POST">
+        Quote:
+        <textarea name="quote"><%=quoteInfo[0].quote%></textarea> <br>
+        Author:
+        <select name="authorId">
+            <% for (let i of authors) {%>
+                <option value="<%=i.authorId%>"
+                    
+                    <% if (i.authorId == quoteInfo[0].authorId) { %>
+                        selected
+                    <% } %> 
+                    
+                    ><%=i.firstName%> <%=i.lastName%></option>
+            <% } %>
+        </select>
+        Category:
+        <select>
+            <% for (let i of categories) {%>
+                <option> <%=i.category%> </option>
+            <% } %>
+        </select>
+        <button> Update Quote </button>
+    </form>
+    <%- include("partials/footer.ejs") %>
+</body>
+</html>

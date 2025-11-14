@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("partials/head.ejs") %>
+    <title>Famous Quotes - Admin Section</title>
+</head>
+<body>
+    <h1 class="text-white text-center p-4 bg-primary">Add Author</h1>
+    <form class="container text-center p-2 border border-primary border-3 rounded-3" action="/addAuthor" method="POST">
+        First Name: <input type="text" name="first"><br>
+        Last Name: <input type="text" name="last"><br>
+        Date of Birth <input type="date" name="dob"> <br>
+        Date of Birth <input type="date" name="dod"> <br>
+        Birth Place: <input type="text" name="bp"><br>
+        Sex: <label><input type="radio" name="sex" value="M">Male</label> 
+        <label><input type="radio" name="sex" value="F">Female</label><br>
+        Proffession: <input type="text" name="prof"><br>
+        Portiat Url: <input type="text" name="url"><br>
+        Biography: <textarea name="bio"></textarea> <br>
+        <button>Add Author</button>
+    </form>
+    <%- include("partials/footer.ejs") %>
+</body>
+</html>

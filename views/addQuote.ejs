@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("partials/head.ejs") %>
+    <title>Add Quote</title>
+</head>
+<body>
+    <h1>Add Quote</h1>
+    <form id="addQuoteForm" action="/addQuote" method="POST">
+        Quote:
+        <textarea id="quoteText" name="quote"></textarea><br>
+        Author:
+        <select name="authorId">
+                <% for (row of rows) { %>
+                    <option value="<%=row.authorId%>"><%=row.firstName%> <%=row.lastName%></option>
+                <% } %>
+        </Select><br>
+        Category:
+        <select name="Category">
+                <% for (row of cate) { %>
+                    <option value="<%=row.category%>"><%=row.category%></option>
+                <% } %>
+        </select>
+        <button>Add Quote</button>
+        <p id="errorMsg"></p>
+    </form>
+    <%- include("partials/footer.ejs") %>
+    <script src="/js/script.js"></script>
+</body>
+</html>

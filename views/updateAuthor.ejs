@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("partials/head.ejs") %>
+    <title>Update Author</title>
+</head>
+<body>
+
+    <h1>Updating Author</h1>
+
+    <form action="/updateAuthor" method="POST">
+        <input type="hidden" name="id" value="<%=authorInfo[0].authorId%>" >
+        First Name: <input type="text" name="fn" value="<%=authorInfo[0].firstName%>"> <br>
+        Last Name: <input type="text" name="ln" value="<%=authorInfo[0].lastName%>">  <br>
+        Date of Birth <input type="date" name="dob" value="<%=authorInfo[0].ISOdob%>"> <br>
+        Sex: <label></label><input type="radio" name="sex" value="F"
+        
+        <% if (authorInfo[0].sex == "F") { %>
+            checked
+        <% } %>
+        > Female </label>
+        <label><input type="radio" name="sex" value="M"
+            <% if (authorInfo[0].sex == "M") { %>
+            checked
+        <% } %>> Male </label> <br>
+        Biography: <textarea name="bio"><%=authorInfo[0].biography%></textarea> <br>
+        <button> Update Author </button>
+    </form>
+    <%- include("partials/footer.ejs") %>
+</body>
+</html>

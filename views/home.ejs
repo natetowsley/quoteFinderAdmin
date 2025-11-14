@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("partials/head.ejs") %>
+    <title>Famous Quotes - Admin Section</title>
+</head>
+
+<body>
+    <h1 class="text-white text-center p-4 bg-primary">Famous Quotes - Admin Section</h1>
+    <form class="text-center" action="/addAuthor">
+        <button class="btn btn-lg btn-outline-primary m-2">New Author</button>
+    </form>
+    <form class="text-center" action="/authors">
+        <button class="btn btn-lg btn-outline-primary m-2">Authors</button>
+    </form>
+    <form class="text-center" action="/quotes">
+        <button class="btn btn-lg btn-outline-primary m-2">Quotes</button>
+    </form>
+    <form class="text-center" action="/addQuote">
+        <button class="btn btn-lg btn-outline-primary m-2">New Quote</button>
+    </form>
+    <%- include("partials/footer.ejs") %>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("partials/head.ejs") %>
+    <title>Authors</title>
+</head>
+<body>
+    <h1> Update/Delete Authors </h1>
+    <% for (let i of authors) { %>
+        <a href="/updateAuthor?id=<%= i.authorId %>"> Update </a>
+        <a href="/deleteAuthor?id=<%= i.authorId %>"> Delete </a>
+        <%= i.authorId %> <%= i.firstName %> <%=i.lastName%> <br>
+    <% } %>
+    <%- include("partials/footer.ejs") %>
+</body>
+</html>
