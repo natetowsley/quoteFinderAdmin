@@ -5,7 +5,9 @@
     <title>Quotes</title>
 </head>
 <body>
-    <h1> Update/Delete Quotes </h1>
+    <h1 class="text-primary text-center p-5 bg-white">Quotes</h1>
+    <%- include("partials/nav.ejs") %>
+    <br>
 
     <% for (let i of quotes) { %>
         <a href="/updateQuote?quoteId=<%=i.quoteId%>" class="btn btn-primary">Update</a>

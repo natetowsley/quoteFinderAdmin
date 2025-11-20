@@ -5,7 +5,8 @@
     <title>Authors</title>
 </head>
 <body>
-    <h1> Update/Delete Authors </h1>
+    <h1 class="text-primary text-center p-5 bg-white">Authors</h1>
+    <%- include("partials/nav.ejs") %>
     <% for (let i of authors) { %>
         <a href="/updateAuthor?id=<%= i.authorId %>"> Update </a>
         <a href="/deleteAuthor?id=<%= i.authorId %>"> Delete </a>

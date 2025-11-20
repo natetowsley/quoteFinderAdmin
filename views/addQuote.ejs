@@ -5,7 +5,9 @@
     <title>Add Quote</title>
 </head>
 <body>
-    <h1>Add Quote</h1>
+    <h1 class="text-primary text-center p-5 bg-white">Add Quote</h1>
+    <%- include("partials/nav.ejs") %>
+    <br>
     <form id="addQuoteForm" action="/addQuote" method="POST">
         Quote:
         <textarea id="quoteText" name="quote"></textarea><br>
@@ -17,7 +19,7 @@
         </Select><br>
         Category:
         <select name="Category">
-                <% for (row of cate) { %>
+                <% for (row of rows2) { %>
                     <option value="<%=row.category%>"><%=row.category%></option>
                 <% } %>
         </select>

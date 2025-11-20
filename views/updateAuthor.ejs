@@ -5,9 +5,9 @@
     <title>Update Author</title>
 </head>
 <body>
-
-    <h1>Updating Author</h1>
-
+    <h1 class="text-primary text-center p-5 bg-white">Update Author</h1>
+    <%- include("partials/nav.ejs") %>
+    <br>
     <form action="/updateAuthor" method="POST">
         <input type="hidden" name="id" value="<%=authorInfo[0].authorId%>" >
         First Name: <input type="text" name="fn" value="<%=authorInfo[0].firstName%>"> <br>
