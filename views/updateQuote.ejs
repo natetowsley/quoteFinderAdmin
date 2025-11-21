@@ -10,6 +10,7 @@
     <br>
 
      <form action="/updateQuote" method="POST">
+        <input type="hidden" name="id" value="<%=quoteId%>" >
         Quote:
         <textarea name="quote"><%=quoteInfo[0].quote%></textarea> <br>
         Author:
@@ -25,9 +26,9 @@
             <% } %>
         </select>
         Category:
-        <select>
+        <select name="cate">
             <% for (let i of categories) {%>
-                <option> <%=i.category%> </option>
+                <option value="<%=i.category%>"> <%=i.category%> </option>
             <% } %>
         </select>
         <button> Update Quote </button>

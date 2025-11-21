@@ -83,7 +83,7 @@ app.get('/updateQuote', isUserAuthenticated, isUserAdmin, async(req, res) => {
     let cat = `SELECT DISTINCT category
     FROM quotes`;
     const [categories] = await pool.query(cat);
-   res.render('updateQuote.ejs', {quoteInfo, authors, categories});
+   res.render('updateQuote.ejs', {quoteId, quoteInfo, authors, categories});
 });
 
 app.get('/quotes', isUserAuthenticated, async(req, res) => {
@@ -184,6 +184,37 @@ app.post('/updateAuthor', isUserAuthenticated, isUserAdmin, async (req, res) => 
     res.redirect('/authors');
 });
 
+app.post('/updateQuote', isUserAuthenticated, isUserAdmin, async (req, res) => {
+    let quoteId = req.body.id;
+    let quote = req.body.quote;
+    let authorId = req.body.authorId;
+    let cate = req.body.cate;
+    let sql = `UPDATE quotes
+               SET quote = ?,
+                   authorId = ?,
+                   category = ?
+               WHERE quoteId = ?`;
+    let sqlParams = [quote, authorId, cate, quoteId];  
+    await pool.query(sql, sqlParams);       
+    res.redirect('/quotes');
+});
+app.get('/deleteAuthor', isUserAuthenticated, isUserAdmin, async (req, res) => {
+    let id = req.query.id;
+    let sql = `DELETE FROM authors
+               WHERE authorId = ?`;
+    let sqlParams = [id];
+    await pool.query(sql, sqlParams);
+    res.redirect('/authors')
+});
+
+app.get('/deleteQuote', isUserAuthenticated, isUserAdmin,async(req,res) => {
+    let id = req.query.quoteId;
+    let sql = `DELETE FROM quotes
+                WHERE quoteId = ?`;
+    let sqlParams = [id];
+    await pool.query(sql, sqlParams);
+    res.redirect('/quotes');
+});
 //middleware
 function isUserAuthenticated(req, res, next) {
     if (req.session.isUserAuthenticated) {
