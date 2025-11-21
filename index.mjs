@@ -148,8 +148,8 @@ app.post('/addQuote', isUserAuthenticated, isUserAdmin, async (req, res) => {
     sql = `SELECT DISTINCT(category) 
            FROM quotes
            ORDER BY category`;
-    const [cate] = await pool.query(sql);
-   res.render('addQuote.ejs', {rows, cate})
+    const [rows2] = await pool.query(sql);
+   res.render('addQuote.ejs', {rows, rows2})
 });
 
 //Stores author data into the database
